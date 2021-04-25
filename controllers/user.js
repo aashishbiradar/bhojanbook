@@ -27,4 +27,14 @@ module.exports = class UserCtrl {
       res.status(401).send({ error });
     }
   }
+
+  async login (req, res) {
+    try {
+      const user = await auth.login(req.body);
+      user.token = auth.generateToken(user);
+      res.send(user);
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
