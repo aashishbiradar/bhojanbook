@@ -9,4 +9,5 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes);
-app.listen(port,() => console.log(`Server is up on port ${port}`));
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`Server is up on port ${port}`));
