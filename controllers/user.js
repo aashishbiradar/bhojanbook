@@ -1,6 +1,5 @@
-const AuthService = require('../services/auth');
+const auth = require('../services/auth');
 
-const auth = new AuthService();
 module.exports = {
   me(req, res) {
     res.send(req.user);
