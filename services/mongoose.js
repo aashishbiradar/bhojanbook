@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { mongoUrl } = require('../config');
 
 const options = {
-  useNewUrlParser: true,
+  useNewUrlParser : true,
   useUnifiedTopology: true,
   useCreateIndex: true
 };
