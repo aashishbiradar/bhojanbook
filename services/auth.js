@@ -43,6 +43,7 @@ module.exports = class AuthService {
     if (!user) {
       throw new Error('invalid user');
     }
-    return user;
+    const userObj = _.omit(user.toObject(), ['password']);
+    return userObj;
   }
 }
