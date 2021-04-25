@@ -16,6 +16,19 @@ module.exports = class AuthService {
     return userObj;
   }
 
+  async login (userDetails) {
+    const user = await UserModel.findOne({email : userDetails.email});
+    if (!user){
+      throw new Error('User not found');
+    }
+    if(!await argon2.verify(user.password, userDetails.password)){
+      throw new Error('Incorrect password');
+    }
+    let userObj = user.toObject();
+    userObj = _.omit(userObj, ['password']);
+    return userObj;
+  }
+
   generateToken(user) {
     const data = {
       _id: user._id.toString(),

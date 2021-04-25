@@ -6,5 +6,6 @@ const ctrl = new UserCtrl();
 
 router.get('/me', ctrl.me);
 router.post('/register', ctrl.register);
+router.post('/login', ctrl.login);
 
 module.exports = router;
