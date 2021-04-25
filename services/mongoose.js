@@ -9,7 +9,7 @@ const options = {
 
 mongoose.connect(mongoUrl, options);
 
-mongoose.connection.on("open", (ref) => {
+mongoose.connection.on("open", () => {
   console.log("Connected to mongo server.");
 });
 
