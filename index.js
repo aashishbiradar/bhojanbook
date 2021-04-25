@@ -1,10 +1,9 @@
 const express = require('express');
 
-const port = 3000;
-const app = express();
+const routes = require('./routes/routes');
 
-app.get('/ping', (req, res) => {
-  res.send('pong');
-});
+const app = express();
+const port = 8000;
+app.use('/api', routes);
 
 app.listen(port,() => console.log(`Server is up on port ${port}`));
