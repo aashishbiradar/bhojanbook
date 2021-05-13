@@ -1,4 +1,3 @@
-
 const AuthService = require('../services/auth');
 const HotelService = require('../services/hotel');
 
@@ -10,10 +9,10 @@ module.exports = {
       newUser.token = AuthService.generateToken(newUser);
       hotel.contactEmail = newUser.email;
       hotel.contactMobile = newUser.mobile;
-      const newHotel = await HotelService(hotel);
+      const newHotel = await HotelService.create(hotel);
       res.json({ newUser, newHotel });
-      res.send(newUser);
     } catch (error) {
+      console.log(error);
       res.status(400).send({ error });
     }
   },
